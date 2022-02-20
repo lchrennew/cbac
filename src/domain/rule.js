@@ -27,8 +27,6 @@ export class Rule {
      * @return {Promise<boolean>}
      */
     async validate(context) {
-        const validator = await this.validator
-        console.log(validator)
-        return validator.validate(context, this.#props) ?? true;
+        return (await this.validator).validate(context, this.#props) ?? true;
     }
 }
