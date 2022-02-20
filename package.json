@@ -1,0 +1,19 @@
+{
+  "name": "cbac",
+  "version": "1.0.0",
+  "description": "Context based access control",
+  "main": "src/index.js",
+  "author": "Chun Li",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon"
+  },
+  "dependencies": {
+    "es-ioredis-url": "^1.0.2",
+    "koa-es-template": "^1.0.8"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
