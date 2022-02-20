@@ -1,6 +1,6 @@
 /**
  *
- * @param context {UserContext}
+ * @param context {{clientContext:{}, serverContext:{}}}
  * @param props
  * @return {Promise<*>}
  */
