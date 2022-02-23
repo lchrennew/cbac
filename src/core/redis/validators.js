@@ -30,11 +30,11 @@ export const saveAccessValidators = (access, ...validators) => {
 }
 
 export const getAccessAliases = access => redis.lrange(keys.accessValidators(access), 0, -1)
+
 export const getAccessValidators = async access => {
     const aliases = await getAccessAliases(access)
     return getValidatorsByAliases(...aliases)
 }
-
 
 /**
  *
