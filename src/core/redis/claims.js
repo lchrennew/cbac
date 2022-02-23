@@ -14,7 +14,7 @@ export const getClaimsByAlias = async (...aliases) => {
 export const createClaim = claim => {
     if (!claim) return
     const content = JSON.stringify(claim)
-    const sha256 = keys.generateClaim(content);
+    const sha256 = keys.claimSha256(content);
     redis.hsetnx(keys.validatorClaims(), sha256, content);
     return sha256
 }
