@@ -16,7 +16,7 @@ Context based access control API
 
 ## API
 ### 1. Validate
-```http
+```
 POST /access-control/validate
 
 Content-Type: application/json
