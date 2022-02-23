@@ -2,7 +2,7 @@ import * as keys from './redis-keys.js'
 import { redis } from "../../utils/redis.js";
 import { getClaimSha256sByAliases } from "./aliases.js";
 
-export const getClaims = async (...sha256s) => {
+const getClaims = async (...sha256s) => {
     return sha256s?.length ? await redis.hmget(keys.validatorClaims(), ...sha256s) : [];
 }
 
