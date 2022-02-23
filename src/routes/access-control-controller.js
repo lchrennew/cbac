@@ -20,6 +20,7 @@ export default class AccessControlController extends Controller {
         this.get('/global', this.getGlobalValidators)
         this.post('/access/:access', this.saveAccessValidators)
         this.post('/access/:access/:alias/props', this.saveAccessProps)
+        this.get('/access/:access/:alias/props', this.getAccessProps)
         this.get('/access/:access', this.getAccessValidators)
         this.get('/alias/exists', this.aliasExists)
     }
@@ -49,6 +50,7 @@ export default class AccessControlController extends Controller {
 
     async saveGlobalValidators(ctx) {
         const validators = ctx.request.body
+        this.logger.info(validators)
         saveGlobalValidators(...validators)
         ctx.body = { ok: true }
     }
@@ -90,5 +92,10 @@ export default class AccessControlController extends Controller {
         const props = ctx.request.body
         saveProps(access, alias, props)
         ctx.body = { ok: true }
+    }
+
+    async getAccessProps(ctx) {
+        const { access, alias } = ctx.params
+        ctx.body = await getProps(access, alias)
     }
 }
