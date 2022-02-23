@@ -1,6 +1,6 @@
 {
   "name": "cbac",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Context based access control",
   "main": "src/index.js",
   "author": "Chun Li",
