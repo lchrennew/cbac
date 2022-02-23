@@ -53,7 +53,7 @@ X-Response-Time: 2ms
 ```
 
 ### 2. Set global validators
-```http request
+```
 POST /access-control/global
 
 Content-Type: application/json
