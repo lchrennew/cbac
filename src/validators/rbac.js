@@ -1,10 +1,10 @@
 /**
  *
- * @param context {{clientContext:{}, serverContext:{}}}
+ * @param context {{clientSide:{}, serverSide:{}}}
  * @param props
  * @return {Promise<*>}
  */
-export const validate = async (context, props) => {
+export const validate = async ({ context, props }) => {
     const { roles = [] } = props
-    return context?.clientContext?.roles?.some?.(role => roles.includes(role)) ?? false
+    return context?.clientSide?.roles?.some?.(role => roles.includes(role)) ?? false
 }

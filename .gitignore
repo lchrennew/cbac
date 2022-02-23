@@ -1,4 +1,6 @@
 node_modules
+stats
+coverage
 yarn.lock
 package-lock.json
 .directory
@@ -6,4 +8,3 @@ package-lock.json
 *.local
 *.log
 *.tgz
-
