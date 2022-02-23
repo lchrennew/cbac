@@ -11,6 +11,7 @@ import {
 import { getClaimsByAlias } from "../core/redis/claims.js";
 import { getProps, saveProps } from "../core/redis/props.js";
 import { existsAlias } from "../core/redis/aliases.js";
+import { deleteAccess, getAccesses, saveAccess } from "../core/redis/accesses.js";
 
 export default class AccessControlController extends Controller {
     constructor(config) {
@@ -21,7 +22,10 @@ export default class AccessControlController extends Controller {
         this.post('/access/:access', this.saveAccessValidators)
         this.post('/access/:access/:alias/props', this.saveAccessProps)
         this.get('/access/:access/:alias/props', this.getAccessProps)
-        this.get('/access/:access', this.getAccessValidators)
+        this.get('/access/:access/validators', this.getAccessValidators)
+        this.get('/access', this.getAccesses)
+        this.post('/access', this.saveAccess)
+        this.delete('/access/:access', this.deleteAccess)
         this.get('/alias/exists', this.aliasExists)
     }
 
@@ -97,5 +101,22 @@ export default class AccessControlController extends Controller {
     async getAccessProps(ctx) {
         const { access, alias } = ctx.params
         ctx.body = await getProps(access, alias)
+    }
+
+    async getAccesses(ctx) {
+        ctx.body = await getAccesses()
+    }
+
+    async saveAccess(ctx) {
+        const { access } = ctx.params
+        const info = ctx.request.body
+        saveAccess(access, info)
+        ctx.body = { ok: true }
+    }
+
+    async deleteAccess(ctx) {
+        const { access } = ctx.params
+        deleteAccess(access)
+        ctx.body = { ok: true }
     }
 }
