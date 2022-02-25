@@ -265,6 +265,6 @@ X-Response-Time: 0ms
 ```
 
 ### 9. Get all accesses' info
-```http request
+```
 GET http://localhost:4242/access-control/access
 ```
