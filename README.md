@@ -136,7 +136,7 @@ X-Response-Time: 1ms
 
 ### 4. Save Access Validators
 ```
-POST http://localhost:4242/access-control/access/a:b:c
+POST http://localhost:4242/access-control/access/validators/a:b:c
 Content-Type: application/json
 
 [
