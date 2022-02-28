@@ -1,17 +1,20 @@
 import { Controller } from "koa-es-template";
 import { createFilter } from "../core/validator-helper.js";
 import {
+    deleteAccess,
+    existsAlias,
     getAccessAliases,
+    getAccesses,
     getAccessValidators,
+    getClaimsByAlias,
     getGlobalAliases,
     getGlobalValidators,
+    getProps,
+    saveAccess,
     saveAccessValidators,
-    saveGlobalValidators
-} from "../core/redis/validators.js";
-import { getClaimsByAlias } from "../core/redis/claims.js";
-import { getProps, saveProps } from "../core/redis/props.js";
-import { existsAlias } from "../core/redis/aliases.js";
-import { deleteAccess, getAccesses, saveAccess } from "../core/redis/accesses.js";
+    saveGlobalValidators,
+    saveProps,
+} from 'cbac-redis'
 
 export default class AccessControlController extends Controller {
     constructor(config) {
