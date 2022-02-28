@@ -1,6 +1,6 @@
 {
   "name": "cbac",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Context based access control",
   "main": "src/index.js",
   "author": "Chun Li",
@@ -11,6 +11,7 @@
     "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --detectOpenHandles"
   },
   "dependencies": {
+    "cbac-redis": "^1.0.1",
     "es-ioredis-url": "^1.0.3",
     "ioredis-rejson": "^1.0.10",
     "koa-es-template": "^1.0.8"
